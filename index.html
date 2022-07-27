@@ -28,7 +28,7 @@
                 </button>
                 <div class="collapse navbar-collapse " id="navbarNav">
 
-                    <ul class="navbar-nav ">
+                    <ul class="navbar-nav ms-auto ">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
@@ -64,6 +64,26 @@
     </header>
 
     <main>
+        <section>
+            <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <img src="..." class="rounded me-2" alt="...">
+                        <strong class="me-auto">Bootstrap</strong>
+                        <small>11 mins ago</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        Hello, world! This is a toast message.
+                    </div>
+                </div>
+            </div>
+
+            <div id="liveAlertPlaceholder"></div>
+            <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
+        </section>
         <!-- cades section start -->
         <section class="container">
             <h1 class="fw-bold infinity mt-5">CASUAL SHOES</h1>
@@ -81,8 +101,9 @@
                         </div>
                         <div class="d-flex justify-content-between m-2">
                             <h1 class="react">$234</h1>
-                            <div> <a class="btn btn-primary" href=""> BUY NOW</a></div>
+                            <div> <a class="btn btn-primary" id="liveToastBtn" href=""> BUY NOW</a></div>
                         </div>
+
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 ">
@@ -115,6 +136,10 @@
                             <h1 class="react">$234</h1>
                             <div> <a class="btn btn-primary" href=""> BUY NOW</a></div>
                         </div>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            most demandable
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -222,6 +247,19 @@
         </section>
         <!-- benifit section end -->
     </main>
+    <!-- toast -->
+    <script>
+        // js for toast
+        document.getElementById("liveToastBtn").onclick = function () {
+            var myAlert = document.getElementById("liveToast"); //select id of toast
+            var bsAlert = new bootstrap.Toast(myAlert); //inizialize it
+            bsAlert.show(); //show it
+        };
+    </script>
+    <!-- toast -->
+
+    <!-- alert -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
